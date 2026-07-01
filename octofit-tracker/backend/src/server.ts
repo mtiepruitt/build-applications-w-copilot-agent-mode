@@ -1,8 +1,8 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
-import mongoose from 'mongoose';
-import { apiBaseUrl, mongoUri, port } from './config';
+import { apiBaseUrl, port } from './config';
+import { connectDatabase } from './database';
 import apiRoutes from './routes';
 
 dotenv.config();
@@ -17,8 +17,7 @@ app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', apiBaseUrl });
 });
 
-mongoose
-  .connect(mongoUri)
+connectDatabase()
   .then(() => {
     app.listen(port, () => {
       console.log(`OctoFit backend listening on port ${port}`);
