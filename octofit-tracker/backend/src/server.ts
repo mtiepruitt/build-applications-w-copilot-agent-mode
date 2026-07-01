@@ -2,7 +2,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import { apiBaseUrl, port } from './config';
-import { connectDatabase } from './database';
+import { connectDatabase } from './config/database';
 import apiRoutes from './routes';
 
 dotenv.config();

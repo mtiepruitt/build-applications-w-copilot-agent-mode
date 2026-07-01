@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { mongoUri } from './config';
+import { mongoUri } from '../config';
 
 export async function connectDatabase() {
   return mongoose.connect(mongoUri, {
